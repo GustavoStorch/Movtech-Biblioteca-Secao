@@ -1,0 +1,22 @@
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\bin\Debug\CadastroSecao.exe.config
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\bin\Debug\CadastroSecao.exe
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\bin\Debug\CadastroSecao.pdb
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.AssemblyReference.cache
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.SuggestedBindingRedirects.cache
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.Form1.resources
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.Properties.Resources.resources
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.GenerateResource.cache
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.CoreCompileInputs.cache
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.exe
+C:\Users\estagiario1\source\repos\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.pdb
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\bin\Debug\CadastroSecao.exe.config
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\bin\Debug\CadastroSecao.exe
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\bin\Debug\CadastroSecao.pdb
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.AssemblyReference.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.SuggestedBindingRedirects.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.Form1.resources
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.Properties.Resources.resources
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.GenerateResource.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.csproj.CoreCompileInputs.cache
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.exe
+C:\Users\estagiario1\Documents\Movtech\Projeto 1\CadastroSecao\CadastroSecao\obj\Debug\CadastroSecao.pdb
