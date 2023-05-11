@@ -84,7 +84,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Location = new System.Drawing.Point(465, 51);
+            this.btnExcluir.Location = new System.Drawing.Point(467, 51);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(77, 22);
             this.btnExcluir.TabIndex = 11;
@@ -95,7 +95,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(383, 51);
+            this.btnSalvar.Location = new System.Drawing.Point(385, 51);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(77, 22);
             this.btnSalvar.TabIndex = 10;
@@ -122,7 +122,7 @@
             this.dtgDadosSecao.RowHeadersWidth = 62;
             this.dtgDadosSecao.RowTemplate.Height = 28;
             this.dtgDadosSecao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgDadosSecao.Size = new System.Drawing.Size(532, 239);
+            this.dtgDadosSecao.Size = new System.Drawing.Size(533, 239);
             this.dtgDadosSecao.TabIndex = 12;
             this.dtgDadosSecao.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDadosSecao_CellDoubleClick);
             // 
