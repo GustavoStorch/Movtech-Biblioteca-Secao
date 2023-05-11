@@ -98,7 +98,7 @@ namespace CadastroSecao
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT SEC.codSecao, SEC.descricaoSecao FROM mvtBibSecao LOC ORDER BY LOC.codSecao");
+                sql.AppendLine("SELECT SEC.codSecao, SEC.descricaoSecao FROM mvtBibSecao SEC ORDER BY SEC.codSecao");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {
