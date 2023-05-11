@@ -21,183 +21,101 @@ namespace CadastroSecao
 
         private void FormCadSecao_Load(object sender, EventArgs e)
         {
-            InitializeTableTableD();
+            InitializeTable();
             CarregaID();
 
         }
 
-        //Cria a conexão com o banco de dados.
-        private SqlConnection Conexao()
-        {
-            conn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=Treinamento;Integrated Security=True");
-            return conn;
-        }
-
-        //Método para ativar ou desativar o botão de excluir do usuário.
-        private void botaoAtivado()
-        {
-            if (btnAtivo)
-            {
-                btnExcluir.Enabled = true;
-            }
-            else
-            {
-                btnExcluir.Enabled = false;
-            }
-        }
-
-        //Recupera o próximo id a ser cadastrado e joga ele para o textBox.
-        private void CarregaID()
-        {
-            conn = Conexao();
-            conn.Open();
-
-            SqlCommand cm = new SqlCommand("SELECT IDENT_CURRENT('mvtBibSecao') + 1", conn);
-            int nextCod = Convert.ToInt32(cm.ExecuteScalar());
-
-            txtCodSecao.Text = nextCod.ToString();
-            conn.Close();
-        }
-
-        private void lblCadSecao_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         //Botão com a funcionalidade de salvar/persistir os dados inseridos no banco de dados.
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            conn = Conexao();
-            String sql;
+            if (string.IsNullOrEmpty(txtCodSecao.Text) || string.IsNullOrWhiteSpace(txtCodSecao.Text))
+            {
+                MessageBox.Show("Informe o campo do Código da seção");
+                return;
+            }
+            else if (string.IsNullOrEmpty(txtDescricaoSecao.Text) || string.IsNullOrWhiteSpace(txtDescricaoSecao.Text))
+            {
+                MessageBox.Show("Informe o campo da descrição da seção");
+                return;
+            }
 
             try
             {
-                //Verifica se o campo do código está vazio e realiza o insert.
-                if (string.IsNullOrEmpty(this.txtCodSecao.Text))
+                using (SqlConnection connection = DaoConnection.GetConexao())
                 {
-                    sql = "INSERT INTO mvtBibSecao(descricaoSecao) VALUES(@descricaoSecao)";
-                    SqlCommand c = new SqlCommand(sql, conn);
+                    SecaoDAO dao = new SecaoDAO(connection);
 
-                    if (String.IsNullOrWhiteSpace(txtDescricaoSecao.Text))
+                    int count = dao.VerificaRegistros(new SecaoModel()
                     {
-                        MessageBox.Show("Erro: Preencha a descrição da seção!");
-                    }
-                    else
-                    {
-                        c.Parameters.Add(new SqlParameter("@descricaoSecao", this.txtDescricaoSecao.Text));
-                    }
+                        CodSecao = txtCodSecao.Text
+                    });
 
-                    conn.Open();
-                    c.ExecuteNonQuery();
-                    conn.Close();
-
-                    MessageBox.Show("Enviado com sucesso!");
-
-                    limparForm();
-                    InitializeTable();
-InitializeTableializeTazeTze     }
-                else
-                {
-                    //Verifica se o código presente no textbox já está registrado dentro do banco de dados.
-                    conn.Open();
-                    string sql2 = "SELECT COUNT(*) FROM mvtBibSecao WHERE codSecao = @codSecao";
-                    SqlCommand cmdSelect = new SqlCommand(sql2, conn);
-                    cmdSelect.Parameters.AddWithValue("@codSecao", txtCodSecao.Text);
-                    int count = Convert.ToInt32(cmdSelect.ExecuteScalar());
-                    conn.Close();
-
-                    //Se o código estiver registrado no banco de dados realiza apenas o update.
                     if (count > 0)
                     {
-                        sql = "UPDATE mvtBibSecao SET descricaoSecao = @descricaoSecao WHERE codSecao = @codSecao";
-                        SqlCommand c = new SqlCommand(sql, conn);
-
-                        c.Parameters.AddWithValue("@codSecao", txtCodSecao.Text);
-
-                        if (String.IsNullOrWhiteSpace(txtDescricaoSecao.Text))
+                        dao.Editar(new SecaoModel()
                         {
-                            MessageBox.Show("Erro: Preencha a descrição da seção!");
-                        }
-                        else
-                        {
-                            c.Parameters.Add(new SqlParameter("@descricaoSecao", this.txtDescricaoSecao.Text));
-                        }
-                        conn.Open();
-
-                        c.ExecuteNonQuery();
-
-                        conn.Close();
-
-                        MessageBox.Show("Atualizado com sucesso!");
-
-                        limparForm();
-                        InitializeTable();
-            I  CaInitializeTable InitializeTalizeTize = false;
-                        botaoAtivado();
+                            CodSecao = txtCodSecao.Text,
+                            NomeSecao = txtDescricaoSecao.Text
+                        });
+                        MessageBox.Show("seção Atualizada com sucesso!");
                     }
                     else
                     {
-                        //Se não estiver registrado no banco de dados realiza o insert.
-                        sql = "INSERT INTO mvtBibSecao(descricaoSecao) VALUES(@descricaoSecao)";
-                        SqlCommand c = new SqlCommand(sql, conn);
-
-                        if (String.IsNullOrWhiteSpace(txtDescricaoSecao.Text))
+                        dao.Salvar(new SecaoModel()
                         {
-                            MessageBox.Show("Erro: Preencha a descrição da seção!");
-                        }
-                        else
-                        {
-                            c.Parameters.Add(new SqlParameter("@descricaoSecao", this.txtDescricaoSecao.Text));
-                        }
-
-                        conn.Open();
-                        c.ExecuteNonQuery();
-                        conn.Close();
-
-                        MessageBox.Show("Enviado com sucesso!");
-
-                        limparForm();
-                        InitializeTable();
-                     IID();
-     InitializeTable
-     InitializeTaializeTlize            catch (SqlException ex)
-            {
-                MessageBox.Show("Ocorreu o erro: " + ex);
+                            CodSecao = txtCodSecao.Text,
+                            NomeSecao = txtDescricaoSecao.Text
+                        });
+                        MessageBox.Show("seção salva com sucesso!");
+                    }
+                }
+                InitializeTable();
+                limparForm();
+                CarregaID();
+                btnExcluir.Enabled = false;
             }
-            finally
+            catch (Exception ex)
             {
-                conn.Close();
+                MessageBox.Show($"Houve um problema ao salvar a seção!\n{ex.Message}");
             }
         }
 
         //Botão que realiza o Delete de um registro no banco de dados.
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            conn = Conexao();
-            String sql = "DELETE mvtBibSecao WHERE codSecao = @codSecao";
+            if (string.IsNullOrEmpty(txtDescricaoSecao.Text))
+            {
+                MessageBox.Show("Escolha a Seção!");
+                return;
+            }
+
+            DialogResult conf = MessageBox.Show("Tem certeza que deseja excluir a Seção?", "Ops, tem certeza?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             try
             {
-                SqlCommand c = new SqlCommand(sql, conn);
-
-                c.Parameters.AddWithValue("@codSecao", txtCodSecao.Text);
-
-                conn.Open();
-                c.ExecuteNonQuery();
-
-                limparForm();
-                InitializeTable();
-                CarregaID();
-I      //btnAtivo = fInitializeTable      botaoInitializeTaitializeTalizessageBox.Show("Excluído com sucesso!");
-
+                if (conf == DialogResult.Yes)
+                {
+                    using (SqlConnection connection = DaoConnection.GetConexao())
+                    {
+                        SecaoDAO dao = new SecaoDAO(connection);
+                        dao.Excluir(new SecaoModel()
+                        {
+                            CodSecao = txtCodSecao.Text
+                        });
+                    }
+                    MessageBox.Show("Seção excluído com sucesso!");
+                    InitializeTable();
+                    limparForm();
+                    CarregaID();
+                    btnExcluir.Enabled = false;
+                }
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu o erro: " + ex);
-            }
-            finally
-            {
-                conn.Close();
+                MessageBox.Show($"Houve um problema ao excluir a Seção!\n{ex.Message}");
             }
         }
 
@@ -211,36 +129,39 @@ I      //btnAtivo = fInitializeTable      botaoInitializeTaitializeTalizessageBo
         //Carrega todos os registros contidos no banco de dados para a DataGridView.
         private void InitializeTable()
         {
-            conn = Conexao();I    String sql = "SELECT codInitializeTabledescricaoSecao AInitializeTaInitializeTializeBY Descrição";
-
-            try
+            dtgDadosSecao.Rows.Clear();
+            using (SqlConnection connection = DaoConnection.GetConexao())
             {
-                DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-
-                conn.Open();
-                da.Fill(ds);
-                gridCadSecao.DataSource = ds.Tables[0];
+                SecaoDAO dao = new SecaoDAO(connection);
+                List<SecaoModel> secoes = dao.GetSecoes();
+                foreach (SecaoModel secao in secoes)
+                {
+                    DataGridViewRow row = dtgDadosSecao.Rows[dtgDadosSecao.Rows.Add()];
+                    row.Cells[colCodSecao.Index].Value = secao.CodSecao;
+                    row.Cells[colNomeSecao.Index].Value = secao.NomeSecao;
+                }
             }
-            catch (SqlException ex)
+        }
+
+        //Recupera o próximo id a ser cadastrado e joga ele para o textBox.
+        private void CarregaID()
+        {
+            using (SqlConnection connection = DaoConnection.GetConexao())
             {
-                MessageBox.Show("Ocorreu o erro: " + ex);
-            }
-            finally
-            {
-                conn.Close();
+                SqlCommand command = new SqlCommand("SELECT IDENT_CURRENT('mvtBibSecao') + 1", connection);
+                int nextCod = Convert.ToInt32(command.ExecuteScalar());
+
+                txtCodSecao.Text = nextCod.ToString();
             }
         }
 
         //Método que realiza o double click em uma linha da grid e joga todos os seus dados para as textBox.
-        private void gridCadSecao_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void dtgDadosSecao_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (gridCadSecao.SelectedRows.Count > 0)
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
-                txtCodSecao.Text = gridCadSecao.SelectedRows[0].Cells[0].Value.ToString();
-                txtDescricaoSecao.Text = gridCadSecao.SelectedRows[0].Cells[1].Value.ToString();
+                txtCodSecao.Text = dtgDadosSecao.Rows[e.RowIndex].Cells[colCodSecao.Index].Value + "";
+                txtDescricaoSecao.Text = dtgDadosSecao.Rows[e.RowIndex].Cells[colNomeSecao.Index].Value + "";
 
                 if (string.IsNullOrEmpty(this.txtDescricaoSecao.Text))
                 {
@@ -251,15 +172,7 @@ I      //btnAtivo = fInitializeTable      botaoInitializeTaitializeTalizessageBo
                 {
                     btnExcluir.Enabled = true;
                 }
-
             }
-        }
-
-        
-
-        private void dtgDadosSecao_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
