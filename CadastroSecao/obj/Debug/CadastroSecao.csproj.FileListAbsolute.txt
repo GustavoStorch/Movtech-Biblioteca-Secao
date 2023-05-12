@@ -31,3 +31,14 @@ C:\Users\estagiario1\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\Cadast
 C:\Users\estagiario1\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.csproj.CoreCompileInputs.cache
 C:\Users\estagiario1\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.exe
 C:\Users\estagiario1\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.pdb
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\bin\Debug\CadastroSecao.exe.config
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\bin\Debug\CadastroSecao.exe
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\bin\Debug\CadastroSecao.pdb
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.csproj.AssemblyReference.cache
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.FormCadSecao.resources
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.Properties.Resources.resources
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.csproj.GenerateResource.cache
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.exe
+C:\Users\Gustavo\Documents\Movtech\Projeto 1\Movtech-Biblioteca-Secao\CadastroSecao\obj\Debug\CadastroSecao.pdb

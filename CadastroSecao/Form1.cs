@@ -24,9 +24,7 @@ namespace CadastroSecao
             InitializeTable();
             CarregaID();
 
-        }
-
-        
+        }        
 
         //Botão com a funcionalidade de salvar/persistir os dados inseridos no banco de dados.
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -42,7 +40,7 @@ namespace CadastroSecao
                 return;
             }
 
-            try
+                try
             {
                 using (SqlConnection connection = DaoConnection.GetConexao())
                 {
