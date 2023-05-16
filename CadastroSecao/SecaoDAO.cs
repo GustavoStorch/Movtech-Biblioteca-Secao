@@ -93,6 +93,22 @@ namespace CadastroSecao
             }
         }
 
+        public bool VerificaCampos(SecaoModel secao)
+        {
+            if (string.IsNullOrEmpty(secao.CodSecao) || string.IsNullOrWhiteSpace(secao.CodSecao))
+            {
+                MessageBox.Show("Informe o campo do Código da Seção");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(secao.NomeSecao) || string.IsNullOrWhiteSpace(secao.NomeSecao))
+            {
+                MessageBox.Show("Informe o campo do Nome da Seção");
+                return false;
+            }
+
+            return true;
+        }
+
         public List<SecaoModel> GetSecoes()
         {
             List<SecaoModel> secoes = new List<SecaoModel>();

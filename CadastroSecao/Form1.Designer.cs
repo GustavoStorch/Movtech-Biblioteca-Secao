@@ -68,8 +68,8 @@
             this.txtCodSecao.Location = new System.Drawing.Point(69, 4);
             this.txtCodSecao.MaxLength = 3;
             this.txtCodSecao.Name = "txtCodSecao";
-            this.txtCodSecao.Size = new System.Drawing.Size(109, 20);
-            this.txtCodSecao.TabIndex = 5;
+            this.txtCodSecao.Size = new System.Drawing.Size(38, 20);
+            this.txtCodSecao.TabIndex = 1;
             // 
             // txtDescricaoSecao
             // 
@@ -79,7 +79,7 @@
             this.txtDescricaoSecao.MaxLength = 50;
             this.txtDescricaoSecao.Name = "txtDescricaoSecao";
             this.txtDescricaoSecao.Size = new System.Drawing.Size(475, 20);
-            this.txtDescricaoSecao.TabIndex = 6;
+            this.txtDescricaoSecao.TabIndex = 2;
             // 
             // btnExcluir
             // 
@@ -87,7 +87,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(467, 51);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(77, 22);
-            this.btnExcluir.TabIndex = 11;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -98,7 +98,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(385, 51);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(77, 22);
-            this.btnSalvar.TabIndex = 10;
+            this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -116,18 +116,19 @@
             this.colCodSecao,
             this.colNomeSecao});
             this.dtgDadosSecao.Location = new System.Drawing.Point(11, 78);
-            this.dtgDadosSecao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgDadosSecao.Margin = new System.Windows.Forms.Padding(2);
             this.dtgDadosSecao.Name = "dtgDadosSecao";
             this.dtgDadosSecao.ReadOnly = true;
             this.dtgDadosSecao.RowHeadersWidth = 62;
             this.dtgDadosSecao.RowTemplate.Height = 28;
             this.dtgDadosSecao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgDadosSecao.Size = new System.Drawing.Size(533, 239);
-            this.dtgDadosSecao.TabIndex = 12;
+            this.dtgDadosSecao.TabIndex = 5;
             this.dtgDadosSecao.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDadosSecao_CellDoubleClick);
             // 
             // colCodSecao
             // 
+            this.colCodSecao.FillWeight = 50F;
             this.colCodSecao.HeaderText = "Código";
             this.colCodSecao.MinimumWidth = 8;
             this.colCodSecao.Name = "colCodSecao";
@@ -152,7 +153,7 @@
             this.Controls.Add(this.txtCodSecao);
             this.Controls.Add(this.lblDescricaoSecao);
             this.Controls.Add(this.lblCodSecao);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormCadSecao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nova Seção";

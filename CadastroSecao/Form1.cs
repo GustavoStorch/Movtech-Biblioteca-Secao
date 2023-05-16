@@ -23,51 +23,50 @@ namespace CadastroSecao
         {
             InitializeTable();
             CarregaID();
-
+            btnExcluir.Enabled = false;
         }        
 
         //Botão com a funcionalidade de salvar/persistir os dados inseridos no banco de dados.
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCodSecao.Text) || string.IsNullOrWhiteSpace(txtCodSecao.Text))
-            {
-                MessageBox.Show("Informe o campo do Código da seção");
-                return;
-            }
-            else if (string.IsNullOrEmpty(txtDescricaoSecao.Text) || string.IsNullOrWhiteSpace(txtDescricaoSecao.Text))
-            {
-                MessageBox.Show("Informe o campo da descrição da seção");
-                return;
-            }
-
                 try
             {
                 using (SqlConnection connection = DaoConnection.GetConexao())
                 {
                     SecaoDAO dao = new SecaoDAO(connection);
 
-                    int count = dao.VerificaRegistros(new SecaoModel()
+                    bool verificaCampos = dao.VerificaCampos(new SecaoModel()
                     {
-                        CodSecao = txtCodSecao.Text
+                        CodSecao = txtCodSecao.Text,
+                        NomeSecao = txtDescricaoSecao.Text
                     });
 
-                    if (count > 0)
+                    if (verificaCampos)
                     {
-                        dao.Editar(new SecaoModel()
+
+                        int count = dao.VerificaRegistros(new SecaoModel()
                         {
-                            CodSecao = txtCodSecao.Text,
-                            NomeSecao = txtDescricaoSecao.Text
+                            CodSecao = txtCodSecao.Text
                         });
-                        MessageBox.Show("seção Atualizada com sucesso!");
-                    }
-                    else
-                    {
-                        dao.Salvar(new SecaoModel()
+
+                        if (count > 0)
                         {
-                            CodSecao = txtCodSecao.Text,
-                            NomeSecao = txtDescricaoSecao.Text
-                        });
-                        MessageBox.Show("seção salva com sucesso!");
+                            dao.Editar(new SecaoModel()
+                            {
+                                CodSecao = txtCodSecao.Text,
+                                NomeSecao = txtDescricaoSecao.Text
+                            });
+                            MessageBox.Show("seção Atualizada com sucesso!");
+                        }
+                        else
+                        {
+                            dao.Salvar(new SecaoModel()
+                            {
+                                CodSecao = txtCodSecao.Text,
+                                NomeSecao = txtDescricaoSecao.Text
+                            });
+                            MessageBox.Show("seção salva com sucesso!");
+                        }
                     }
                 }
                 InitializeTable();
@@ -84,12 +83,6 @@ namespace CadastroSecao
         //Botão que realiza o Delete de um registro no banco de dados.
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtDescricaoSecao.Text))
-            {
-                MessageBox.Show("Escolha a Seção!");
-                return;
-            }
-
             DialogResult conf = MessageBox.Show("Tem certeza que deseja excluir a Seção?", "Ops, tem certeza?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             try
@@ -99,12 +92,23 @@ namespace CadastroSecao
                     using (SqlConnection connection = DaoConnection.GetConexao())
                     {
                         SecaoDAO dao = new SecaoDAO(connection);
-                        dao.Excluir(new SecaoModel()
+
+                        bool verificaCampos = dao.VerificaCampos(new SecaoModel()
                         {
-                            CodSecao = txtCodSecao.Text
+                            CodSecao = txtCodSecao.Text,
+                            NomeSecao = txtDescricaoSecao.Text
                         });
+
+                        if (verificaCampos)
+                        {
+                            dao.Excluir(new SecaoModel()
+                            {
+                                CodSecao = txtCodSecao.Text
+                            });
+                            MessageBox.Show("Seção excluído com sucesso!");
+                        }
                     }
-                    MessageBox.Show("Seção excluído com sucesso!");
+                    
                     InitializeTable();
                     limparForm();
                     CarregaID();
