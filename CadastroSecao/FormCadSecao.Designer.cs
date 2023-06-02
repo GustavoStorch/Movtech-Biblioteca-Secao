@@ -64,7 +64,7 @@
             this.txtCodSecao.Enabled = false;
             this.txtCodSecao.Location = new System.Drawing.Point(104, 6);
             this.txtCodSecao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCodSecao.MaxLength = 3;
+            this.txtCodSecao.MaxLength = 4;
             this.txtCodSecao.Name = "txtCodSecao";
             this.txtCodSecao.Size = new System.Drawing.Size(55, 26);
             this.txtCodSecao.TabIndex = 1;
